@@ -1,5 +1,11 @@
 # @tylerapfledderer/chakra-ui-typescale
 
+## 1.0.3
+
+### Patch Changes
+
+- adf9330: fix usage example in README
+
 ## 1.0.2
 
 ### Patch Changes
