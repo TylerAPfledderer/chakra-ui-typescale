@@ -23,7 +23,7 @@ yarn add @tap/chakra-ui-typescale
 `extendTheme`
 
 ```ts
-import { withTypeScale } from '@tap/chakra-ui-typescale';
+import { withTypeScale } from '@tylerapfledderer/chakra-ui-typescale';
 
 const customTheme = extendTheme(
   {
