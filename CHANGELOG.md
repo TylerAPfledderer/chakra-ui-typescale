@@ -1,5 +1,11 @@
 # @tylerapfledderer/chakra-ui-typescale
 
+## 1.0.5
+
+### Patch Changes
+
+- e3b880a: fix link for LGTM language grade badge
+
 ## 1.0.4
 
 ### Patch Changes
