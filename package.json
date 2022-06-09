@@ -1,0 +1,48 @@
+{
+  "name": "@tap/chakra-ui-typescale",
+  "version": "1.0.0",
+  "description": "A Chakra UI theme extenstion plugin to generate font sizes and line-heights",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "changeset:gen": "npx changeset",
+    "release": "npx changeset publish"
+  },
+  "keywords": [
+    "chakra-ui",
+    "typography",
+    "typescale",
+    "react"
+  ],
+  "author": "Tyler Pfledderer",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "eslint": "^8.17.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2",
+    "typescript": "^4.7.3"
+  },
+  "dependencies": {
+    "@capsizecss/core": "^3.0.0",
+    "@chakra-ui/react": "^2.2.1",
+    "@chakra-ui/theme-tools": "^2.0.2",
+    "@chakra-ui/utils": "^2.0.2",
+    "@changesets/cli": "^2.22.0"
+  }
+}
