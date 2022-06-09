@@ -10,11 +10,11 @@ and `Heading` components.
 ## Installation
 
 ```bash
-npm i @tap/chakra-ui-typescale
+npm i @tylerapfledderer/chakra-ui-typescale
 
 # or
 
-yarn add @tap/chakra-ui-typescale
+yarn add @tylerapfledderer/chakra-ui-typescale
 ```
 
 ## Usage
