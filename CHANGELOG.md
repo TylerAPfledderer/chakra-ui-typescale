@@ -1,5 +1,11 @@
 # @tylerapfledderer/chakra-ui-typescale
 
+## 1.0.4
+
+### Patch Changes
+
+- cb70fe4: Add README badges for license and language grade
+
 ## 1.0.3
 
 ### Patch Changes
