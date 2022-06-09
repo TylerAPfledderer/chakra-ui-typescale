@@ -1,7 +1,7 @@
 # withTypeScale for ChakraUI
 
 ![NPM Package License](https://img.shields.io/npm/l/@tylerapfledderer/chakra-ui-typescale?style=for-the-badge)
-![LGTM Grade](https://img.shields.io/lgtm/grade/javascript/github/tylerapfledderer/chakra-ui-typescale?style=for-the-badge)
+![LGTM Grade](https://img.shields.io/lgtm/grade/javascript/github/TylerAPfledderer/chakra-ui-typescale?style=for-the-badge)
 
 A theme extension for ChakraUI to generate a type scale for use with the `Text`
 and `Heading` components.
