@@ -13,7 +13,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "changeset:gen": "npx changeset",
-    "release": "npx changeset publish"
+    "release": "changeset publish"
   },
   "keywords": [
     "chakra-ui",
