@@ -29,7 +29,7 @@ const customTheme = extendTheme(
   {
     // default custom styles
   },
-  withTypeScale(1.25),
+  withTypeScale({ scale: 1.25 }),
 );
 
 export default customTheme;
