@@ -26,6 +26,14 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TylerAPfledderer/chakra-ui-typescale.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TylerAPfledderer/chakra-ui-typescale/issues"
+  },
+  "homepage": "https://github.com/TylerAPfledderer/chakra-ui-typescale#readme",
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
