@@ -1,1 +1,4 @@
 dist
+
+## Currently do not want global linting check in apps
+apps
