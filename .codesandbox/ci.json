@@ -1,6 +1,5 @@
 {
   "node": "16",
-  "installCommand": "npm i",
-  "buildCommand": "npm run build",
+  "buildCommand": "build",
   "sandboxes": ["/apps/nextjs"]
 }
