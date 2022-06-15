@@ -1,5 +1,11 @@
 # @tylerapfledderer/chakra-ui-typescale
 
+## 1.1.1
+
+### Patch Changes
+
+- ceaee99: Fix import for `vertical-space` into `with-typescale`
+
 ## 1.1.0
 
 ### Minor Changes
