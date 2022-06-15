@@ -13,7 +13,8 @@
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "eslint . --ext .ts",
     "changeset:gen": "npx changeset",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "dev:nextjs": "npm run dev --prefix apps/nextjs"
   },
   "keywords": [
     "chakra-ui",
