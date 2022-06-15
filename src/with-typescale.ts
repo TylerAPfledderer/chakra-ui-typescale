@@ -88,22 +88,23 @@ export function withTypeScale(props: WithTypeScaleProps): ThemeExtension {
   );
 
   return (theme) => {
+    const vertical = verticalSpace(lineHeight);
     return mergeThemeOverride(theme, {
       fontSizes: fontSizesObj,
       space: {
-        vertical: verticalSpace(lineHeight),
+        vertical,
       },
       components: {
         Heading: {
           baseStyle: {
-            marginBottom: 'vertical.2',
+            marginBottom: vertical[2],
           },
           sizes: headingSizesObj,
         },
         Text: {
           baseStyle: {
             lineHeight: headingSizesObj.base.lineHeight,
-            marginBottom: 'vertical.2',
+            marginBottom: vertical[2],
           },
         },
       },
