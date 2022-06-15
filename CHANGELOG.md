@@ -1,5 +1,11 @@
 # @tylerapfledderer/chakra-ui-typescale
 
+## 1.1.2
+
+### Patch Changes
+
+- e0e5407: Fix generated component base styles where the default values for `marginBottom` should come directly from the `verticalSpace` function return instead of calling the token strings.
+
 ## 1.1.1
 
 ### Patch Changes
