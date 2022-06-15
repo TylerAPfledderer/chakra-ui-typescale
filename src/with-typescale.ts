@@ -1,6 +1,7 @@
 import { mergeThemeOverride, ThemeExtension } from '@chakra-ui/react';
 import { toPrecision } from '@chakra-ui/utils';
 import { SystemStyleObject } from '@chakra-ui/theme-tools';
+import verticalSpace from 'vertical-space';
 
 type WithTypeScaleProps = {
   /**
@@ -9,9 +10,9 @@ type WithTypeScaleProps = {
   scale: number;
 
   /**
-   * Base line-height number in rem to help assign proper lineHeight to each font-size generated for defaults.
+   * Base line-height number in rem to help assign proper lineHeight to each font-size generated for defaults, and used to generate vertical spacing tokens.
    *
-   * The `rem` value helps calculate the actual line height for each font size to keep with vertical rhythm practice
+   * The `rem` value helps calculate the actual line height for each font size to keep with vertical rhythm practice.
    * @default 1.5
    */
   lineHeight?: number;
@@ -89,13 +90,20 @@ export function withTypeScale(props: WithTypeScaleProps): ThemeExtension {
   return (theme) => {
     return mergeThemeOverride(theme, {
       fontSizes: fontSizesObj,
+      space: {
+        vertical: verticalSpace(lineHeight),
+      },
       components: {
         Heading: {
+          baseStyle: {
+            marginBottom: 'vertical.2',
+          },
           sizes: headingSizesObj,
         },
         Text: {
           baseStyle: {
             lineHeight: headingSizesObj.base.lineHeight,
+            marginBottom: 'vertical.2',
           },
         },
       },
