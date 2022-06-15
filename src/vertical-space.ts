@@ -5,15 +5,13 @@
  */
 const verticalSpace = (base: number) => {
   const TOKEN_QUANTITY = 13;
-  const keyNameArray = Array.from<number>({
+
+  const spaces = Array.from<number>({
     length: TOKEN_QUANTITY,
-  }).map((_, index) => {
-    const key = index + 1;
-    return key * 0.5;
-  });
-  const spaces = keyNameArray.reduce<{ [x: number]: string }>((acc, curr) => {
-    const tokenKey = curr;
-    return { ...acc, [tokenKey]: `${(base * curr).toFixed(3)}rem` };
+  }).reduce<{ [x: number]: string }>((acc, _, currIndex) => {
+    const tokenKey = currIndex + 1;
+    // `(base / 2)` to keep whole number keys with multiples of half of the line height value.
+    return { ...acc, [tokenKey]: `${((base / 2) * tokenKey).toFixed(3)}rem` };
   }, {});
   return spaces;
 };
