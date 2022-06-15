@@ -45,6 +45,8 @@ There is a [type-scale generator](https://type-scale.com/) by Jeremy Church for
 reference. (Scroll down on the page to see his suggestions on picking a scale
 value!)
 
+### `lineHeight` prop
+
 An optional prop is the `lineHeight` which is also passed as a unitless number
 value, but renders as a `rem` value. It needs to be unitless to allow for
 certain calculations on the return to the theme.
@@ -56,13 +58,15 @@ rhythm. In other words, if the line height in pixels for a `16px` body copy is
 `h1` should be `3 * 24 = 72px`. This means the `h1` takes up three "rows" in the
 base line height.
 
+This `lineHeight` value is also used to generate a new set of `space` theme tokens specifically for the vertical rhyhtm in line with the type scale. This provides spacing consistency between text content, regardless of any other content that may not fit in the baseline.
+
 > To learn more on vertical rhythm check out the discussion from designer Matej
 > Latin on his site
 > [BetterWebType.com](https://betterwebtype.com/articles/2018/10/15/rhythm-in-web-typography/#vertical-rhythm)
 
 ## Return Object
 
-`withTypeScale` generates the following set of token values:
+`withTypeScale` generates the following set of token values for sizing:
 
 `['sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl']`
 
@@ -81,15 +85,34 @@ to get an idea on how `withTypeScale` returns a similar set.
 The `Text` component gets a base style `lineHeight` of the `base` token line
 height value.
 
+Both the `Heading` and `Text` components also receive a base style `marginBottom` of the `vertical.2` token denoting the line height value in `rem`. (See below)
+
+It also generates a subset of tokens under the `space` theme object with the object name `vertical`. There are 13 whole-number tokens, with values equal to multiple of half the given `lineHeight` from the extension's props in `rem`.
+
+> Using whole numbers to prevent confusion and minimize complexity when calling the tokens.
+> i.e. `vertical.1, vertical.2` instead of `vertical.1, vertical.1.5`
+
+```js
+// lineHeight value: 1.5
+{
+  space: {
+    // Other values
+    vertical: {
+      1: "0.75rem",
+      2: "1.5rem",
+      3: "2.25rem"
+      // etc. up to 13
+    }
+  }
+}
+```
+
+So use the even token numbers if you want to use multiples of the line height!
+
 ## Future Considerations
 
 - Testing with Capsize and the
   [chakra-capsize package](https://github.com/ceteio/chakra-capsize) to find any
   impact with its implementation.
-- Opening up to also generating spacing values. This can get tricky because this
-  considers vertical rhythm theory, which is only concerned with vertical
-  spacing and not horizontal spacing. Maybe create an object like `container`
-  (which is a part of the default theme) in the `spacing` object for explicit
-  reference and not override the base theme values unneccessarily.
 - As the extension gets used, there may be discovery of other ways to generate
   the values more effeciently or with more flexibility.
