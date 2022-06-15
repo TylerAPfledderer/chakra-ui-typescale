@@ -1,5 +1,11 @@
 # @tylerapfledderer/chakra-ui-typescale
 
+## 1.1.0
+
+### Minor Changes
+
+- 0a6e762: Add generation of vertical spacing tokens
+
 ## 1.0.5
 
 ### Patch Changes
