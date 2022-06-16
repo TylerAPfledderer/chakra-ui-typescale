@@ -1,13 +1,11 @@
-import { Box, BoxProps, Heading, Text } from '@chakra-ui/react';
+import { Box, Heading, Text } from '@chakra-ui/react';
 import { Container } from '../container';
-
-const ChunkWrapper = (props: BoxProps) => <Box mb="1.45rem" {...props} />;
 
 export default function MainPage() {
   return (
     <Container>
-      <ChunkWrapper>
-        <Heading as="h1" size="5xl" mb={2}>
+      <Box>
+        <Heading as="h1" size="5xl">
           H1 Size
         </Heading>
         <Text>
@@ -19,8 +17,8 @@ export default function MainPage() {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
         </Text>
-      </ChunkWrapper>
-      <ChunkWrapper>
+      </Box>
+      <Box>
         <Heading as="h2" size="4xl">
           H2 Size
         </Heading>
@@ -33,8 +31,8 @@ export default function MainPage() {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
         </Text>
-      </ChunkWrapper>
-      <ChunkWrapper>
+      </Box>
+      <Box>
         <Heading as="h3" size="3xl">
           H3 Size
         </Heading>
@@ -47,8 +45,8 @@ export default function MainPage() {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
         </Text>
-      </ChunkWrapper>
-      <ChunkWrapper>
+      </Box>
+      <Box>
         <Heading as="h4" size="2xl">
           H4 Size
         </Heading>
@@ -61,8 +59,8 @@ export default function MainPage() {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
         </Text>
-      </ChunkWrapper>
-      <ChunkWrapper>
+      </Box>
+      <Box>
         <Heading as="h5" size="xl">
           H5 Size
         </Heading>
@@ -75,8 +73,8 @@ export default function MainPage() {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
         </Text>
-      </ChunkWrapper>
-      <ChunkWrapper>
+      </Box>
+      <Box>
         <Heading as="h6" size="lg">
           H6 Size
         </Heading>
@@ -89,7 +87,7 @@ export default function MainPage() {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
         </Text>
-      </ChunkWrapper>
+      </Box>
       <Text fontSize="sm">Small Size in the Main Page</Text>
     </Container>
   );

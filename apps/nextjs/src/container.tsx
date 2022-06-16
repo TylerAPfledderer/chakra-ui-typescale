@@ -8,7 +8,7 @@ export const Container = (props: FlexProps) => (
     color="black"
     maxW="container.xl"
     m="auto"
-    py="4"
+    p="4"
     {...props}
   />
 );
