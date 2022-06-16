@@ -2,19 +2,22 @@
   "name": "@tylerapfledderer/chakra-ui-typescale",
   "version": "1.1.2",
   "description": "A Chakra UI theme extenstion plugin to generate font sizes and line-heights",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "tsup src/index.ts --dts --format esm,cjs --treeshake --target node16 --minify",
+    "dev": "tsup src/index.ts --dts --format esm,cjs --treeshake --target node16 --watch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "eslint . --ext .ts",
     "changeset:gen": "npx changeset",
     "release": "changeset publish",
-    "dev:nextjs": "npm run dev --prefix apps/nextjs"
+    "dev:nextjs": "npm run dev --prefix apps/nextjs",
+    "clean": "rm -rf dist"
   },
   "keywords": [
     "chakra-ui",
@@ -45,6 +48,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.6.2",
+    "tsup": "^6.1.2",
     "typescript": "^4.7.3"
   },
   "dependencies": {
