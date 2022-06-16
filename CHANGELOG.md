@@ -1,5 +1,15 @@
 # @tylerapfledderer/chakra-ui-typescale
 
+## 1.2.0
+
+### Minor Changes
+
+- 1daaa73: Add tsup to build the package
+
+### Patch Changes
+
+- 56e1f6c: Bump dependencies
+
 ## 1.1.2
 
 ### Patch Changes
