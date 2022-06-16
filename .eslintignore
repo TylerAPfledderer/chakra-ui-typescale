@@ -2,3 +2,9 @@ dist
 
 ## Currently do not want global linting check in apps
 apps
+
+## Ignore the lint config itself!
+.eslintrc.js
+
+## Config for tsup
+tsup.config.ts
