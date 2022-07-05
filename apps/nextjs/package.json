@@ -10,7 +10,7 @@
     "@chakra-ui/react": "latest",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@tylerapfledderer/chakra-ui-typescale": "*",
+    "@tylerapfledderer/chakra-ui-typescale": "file:../../../tylerapfledderer-chakra-ui-typescale-1.2.0.tgz",
     "framer-motion": "^6",
     "next": "latest",
     "react": "latest",
