@@ -17,7 +17,8 @@
     "changeset:gen": "npx changeset",
     "release": "changeset publish",
     "dev:nextjs": "npm run dev --prefix apps/nextjs",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "build:pkg": "npm run build && npm pack --pack-destination ../"
   },
   "keywords": [
     "chakra-ui",
