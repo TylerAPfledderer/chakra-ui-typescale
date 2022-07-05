@@ -5,4 +5,7 @@ module.exports = {
   parserOptions: {
     project: './tsconfig.json',
   },
+  rules: {
+    '@typescript-eslint/indent': 'off',
+  },
 };
