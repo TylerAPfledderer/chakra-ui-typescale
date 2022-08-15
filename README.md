@@ -70,9 +70,9 @@ This `lineHeight` value is also used to generate a new set of `space` theme toke
 
 > Defaults to `false`
 
-This prop toggles between the use of custom `clamp()` functionality, or Chakra's breakpoint array feature. This is applied to the `Heading` component font sizes and line heights generated in the `sizes` theme object.
+This prop toggles between the use of custom functionality with the CSS `clamp()` function, or Chakra's breakpoint array feature. This is applied to the `Heading` component font sizes and line heights generated in the `sizes` theme object.
 
-- If `true` a custom `clamp()` function is used so the font sizes and line heights are scaled gradually throughout screen sizes instead of breakpoints. The minimum screen size is `375px` and the maximum screen size is `640px`.
+- If `true` a custom function with `clamp()` is used so the font sizes and line heights are scaled gradually throughout screen sizes instead of breakpoints. The minimum screen size is `375px` and the maximum screen size is `640px`.
   - Instead of true, you can also defined an object to set a `minW` and/or `maxW` in pixels
 
 ```ts
