@@ -5,6 +5,7 @@ import {
 } from '@chakra-ui/react';
 import { toPrecision } from '@chakra-ui/utils';
 import verticalSpace from './vertical-space';
+import { clampFont } from './utils/clamp-font';
 
 type WithTypeScaleProps = {
   /**
@@ -19,10 +20,20 @@ type WithTypeScaleProps = {
    * @default 1.5
    */
   lineHeight?: number;
+
+  /**
+   * If true, the font sizes and line heights generated will use the `clamp()` function
+   * instead of using an array with Chakra's breakpoint checking.
+   *
+   * NOTE: This is only applied to the `sizes` for the `Heading` component. The `Text` component theme does not use `sizes`.
+   *
+   * @default true
+   */
+  isClamped?: boolean;
 };
 
 export function withTypeScale(props: WithTypeScaleProps): ThemeExtension {
-  const { scale, lineHeight = 1.5 } = props;
+  const { scale, lineHeight = 1.5, isClamped = true } = props;
 
   if (typeof lineHeight !== 'number')
     throw Error(
@@ -68,22 +79,52 @@ export function withTypeScale(props: WithTypeScaleProps): ThemeExtension {
     while (i < size) {
       i += lineHeight;
     }
-    return i + 'rem';
+    return i;
   });
+
+  const scaledFontSize = (curr: string, currIndex: number) =>
+    isClamped
+      ? clampFont({
+          minSize: sizesArr[currIndex - 1],
+          maxSize: sizesArr[currIndex],
+        })
+      : [SIZE_TOKENS[currIndex - 1] || curr, null, curr];
+
+  const scaledLineHeight = (currIndex: number) => {
+    const lineHeightScale = isClamped
+      ? clampFont({
+          minSize: lineHeightArr[currIndex - 1],
+          maxSize: lineHeightArr[currIndex],
+        })
+      : [
+          lineHeightArr[currIndex - 1] + 'rem',
+          null,
+          lineHeightArr[currIndex] + 'rem',
+        ];
+
+    /**
+     * If the lineHeight value for the current Heading size is the same as the previous,
+     * return just that value.
+     * Else, return the scale.
+     */
+    const lineHeightVal =
+      lineHeightArr[currIndex - 1] === lineHeightArr[currIndex]
+        ? lineHeightArr[currIndex] + 'rem'
+        : lineHeightScale;
+
+    return lineHeightVal;
+  };
 
   const headingSizesObj: Record<string, SystemStyleObject> = SIZE_TOKENS.reduce(
     (prev, curr, currIndex) => {
       return {
         ...prev,
         [curr]: {
-          fontSize:
-            currIndex < 2
-              ? curr
-              : [SIZE_TOKENS[currIndex - 1] || curr, null, curr],
+          fontSize: currIndex < 2 ? curr : scaledFontSize(curr, currIndex),
           lineHeight:
             currIndex < 2
-              ? lineHeightArr[currIndex]
-              : [lineHeightArr[currIndex - 1], null, lineHeightArr[currIndex]],
+              ? lineHeightArr[currIndex] + 'rem'
+              : scaledLineHeight(currIndex),
         },
       };
     },
