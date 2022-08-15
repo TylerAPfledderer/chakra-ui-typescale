@@ -25,15 +25,17 @@ type WithTypeScaleProps = {
    * If true, the font sizes and line heights generated will use the `clamp()` function
    * instead of using an array with Chakra's breakpoint checking.
    *
-   * NOTE: This is only applied to the `sizes` for the `Heading` component. The `Text` component theme does not use `sizes`.
+   * Can also accept an object (making it truthy) to set the minimum and/or maximum viewport widths to clamp at. (`minVW` and `maxVW`)
    *
-   * @default true
+   * NOTE: This is only applied to the `sizes` theme object for the `Heading` component. The `Text` component theme does not use `sizes`.
+   *
+   * @default false
    */
-  isClamped?: boolean;
+  isClamped?: boolean | { minVW?: number; maxVW?: number };
 };
 
 export function withTypeScale(props: WithTypeScaleProps): ThemeExtension {
-  const { scale, lineHeight = 1.5, isClamped = true } = props;
+  const { scale, lineHeight = 1.5, isClamped = false } = props;
 
   if (typeof lineHeight !== 'number')
     throw Error(
@@ -82,11 +84,16 @@ export function withTypeScale(props: WithTypeScaleProps): ThemeExtension {
     return i;
   });
 
+  // Check if the `isClamped` prop is an object with min and/or max values
+  const isClampedObj = typeof isClamped === 'object' ? isClamped : undefined;
+
   const scaledFontSize = (curr: string, currIndex: number) =>
     isClamped
       ? clampFont({
           minSize: sizesArr[currIndex - 1],
           maxSize: sizesArr[currIndex],
+          minVW: isClampedObj?.minVW,
+          maxVW: isClampedObj?.maxVW,
         })
       : [SIZE_TOKENS[currIndex - 1] || curr, null, curr];
 
@@ -95,6 +102,8 @@ export function withTypeScale(props: WithTypeScaleProps): ThemeExtension {
       ? clampFont({
           minSize: lineHeightArr[currIndex - 1],
           maxSize: lineHeightArr[currIndex],
+          minVW: isClampedObj?.minVW,
+          maxVW: isClampedObj?.maxVW,
         })
       : [
           lineHeightArr[currIndex - 1] + 'rem',
