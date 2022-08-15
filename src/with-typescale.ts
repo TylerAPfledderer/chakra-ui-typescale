@@ -1,6 +1,9 @@
-import { mergeThemeOverride, ThemeExtension } from '@chakra-ui/react';
+import {
+  mergeThemeOverride,
+  SystemStyleObject,
+  ThemeExtension,
+} from '@chakra-ui/react';
 import { toPrecision } from '@chakra-ui/utils';
-import { SystemStyleObject } from '@chakra-ui/theme-tools';
 import verticalSpace from './vertical-space';
 
 type WithTypeScaleProps = {
