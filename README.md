@@ -6,24 +6,24 @@
 A theme extension for ChakraUI to generate a type scale for use with the `Text`
 and `Heading` components.
 
-> This is a project for personal use, but feel free to try it out in your own
-> Chakra projects. Any feedback and help to make the extension better is always
-> welcome! 😁
+> Any feedback and help to make the extension better is always welcome! 😁
 
 ## Installation
 
 ```bash
 npm i @tylerapfledderer/chakra-ui-typescale
+```
 
 # or
 
+```bash
 yarn add @tylerapfledderer/chakra-ui-typescale
 ```
 
 ## Usage
 
-`withTypeScale` as an extension is included as an additional argument to the
-`extendTheme`
+Because `withTypeScale` is a theme extension, it is included as an additional argument to the
+`extendTheme`, along with any other extension that may be used.
 
 ```ts
 import { withTypeScale } from '@tylerapfledderer/chakra-ui-typescale';
@@ -38,6 +38,8 @@ const customTheme = extendTheme(
 export default customTheme;
 ```
 
+### `scale` prop
+
 It requires one prop, referred to as the `scale`. It is a unitless number value,
 with the lowest common value usually `1.067` (or the "Minor Second") up to
 `1.618` (the "Golden Ratio") and any other scale or custom value in between.
@@ -45,7 +47,7 @@ There is a [type-scale generator](https://type-scale.com/) by Jeremy Church for
 reference. (Scroll down on the page to see his suggestions on picking a scale
 value!)
 
-### `lineHeight` prop
+### `lineHeight` prop _(optional)_
 
 An optional prop is the `lineHeight` which is also passed as a unitless number
 value, but renders as a `rem` value. It needs to be unitless to allow for
@@ -63,6 +65,25 @@ This `lineHeight` value is also used to generate a new set of `space` theme toke
 > To learn more on vertical rhythm check out the discussion from designer Matej
 > Latin on his site
 > [BetterWebType.com](https://betterwebtype.com/articles/2018/10/15/rhythm-in-web-typography/#vertical-rhythm)
+
+### `isClamped` prop _(optional)_
+
+> Defaults to `false`
+
+This prop toggles between the use of custom `clamp()` functionality, or Chakra's breakpoint array feature. This is applied to the `Heading` component font sizes and line heights generated in the `sizes` theme object.
+
+- If `true` a custom `clamp()` function is used so the font sizes and line heights are scaled gradually throughout screen sizes instead of breakpoints. The minimum screen size is `375px` and the maximum screen size is `640px`.
+  - Instead of true, you can also defined an object to set a `minW` and/or `maxW` in pixels
+
+```ts
+withTypeScale({
+  scale: 1.25,
+  lineHeight: 1.45,
+  isClamped: { minW: 300, maxW: 1200 },
+});
+```
+
+- If `false` Chakra's breakpoint array is used to declare change of the font sizes and line heights via a sensible breakpoint. (breakpoint used is `min-width` 48em, aka `md`). For more information, see Chakra UI's page on [Responsive Styles](https://chakra-ui.com/docs/styled-system/responsive-styles)
 
 ## Return Object
 
@@ -111,8 +132,5 @@ So use the even token numbers if you want to use multiples of the line height!
 
 ## Future Considerations
 
-- Testing with Capsize and the
-  [chakra-capsize package](https://github.com/ceteio/chakra-capsize) to find any
-  impact with its implementation.
 - As the extension gets used, there may be discovery of other ways to generate
   the values more effeciently or with more flexibility.
