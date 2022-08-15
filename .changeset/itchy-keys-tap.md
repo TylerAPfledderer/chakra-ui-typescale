@@ -2,7 +2,7 @@
 '@tylerapfledderer/chakra-ui-typescale': minor
 ---
 
-Add option to use `clamp()` functionality for `Heading` sizes
+Add option to use `clamp()` functionality for `Heading` sizes via the prop `isClamped`.
 
 > Defaults to `false`
 
