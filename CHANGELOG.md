@@ -1,5 +1,15 @@
 # @tylerapfledderer/chakra-ui-typescale
 
+## 1.2.1
+
+### Patch Changes
+
+- ee6e63b: Update dependencies, import(s) and remove `@chakra-ui/theme-tools` dependency.
+
+  - Dependecy versions have been bumped
+  - Removed `@chakra-ui/theme-tools` dependency as it is no longer needed to import `SystemStyleObject`
+  - `SystemStyleObject` is now imported from `@chakra-ui/react`
+
 ## 1.2.0
 
 ### Minor Changes
