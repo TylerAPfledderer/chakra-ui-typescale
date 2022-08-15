@@ -54,7 +54,6 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^2.2.1",
-    "@chakra-ui/theme-tools": "^2.0.2",
     "@chakra-ui/utils": "^2.0.2",
     "@changesets/cli": "^2.23.0"
   }
