@@ -14,7 +14,7 @@ and `Heading` components.
 npm i @tylerapfledderer/chakra-ui-typescale
 ```
 
-# or
+or
 
 ```bash
 yarn add @tylerapfledderer/chakra-ui-typescale
