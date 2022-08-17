@@ -50,19 +50,18 @@ export function withTypeScale(props: WithTypeScaleProps): ThemeExtension {
   /**
    * Holds the generated font sizes
    */
-  const sizesArr: number[] = [];
-  for (let i = 0; i < SIZE_TOKENS.length; i++) {
-    const value =
-      SIZE_TOKENS[i] === 'base' ? '1' : toPrecision(Math.pow(scale, i - 1), 3);
+  const sizesArr: number[] = SIZE_TOKENS.map((token, index) => {
+    const value = token === 'base' ? '1' : toPrecision(scale ** (index - 1), 3);
 
-    sizesArr.push(parseFloat(value));
-  }
+    return parseFloat(value);
+  });
+
   /**
    * The key:value pairs of the token abbreviation and related generated font size
    */
   const fontSizesObj: Record<string, string> = SIZE_TOKENS.reduce(
     (prev, curr, currIndex) => {
-      return { ...prev, [curr]: sizesArr[currIndex] + 'rem' };
+      return { ...prev, [curr]: `${sizesArr[currIndex]}rem` };
     },
     {},
   );
@@ -76,7 +75,7 @@ export function withTypeScale(props: WithTypeScaleProps): ThemeExtension {
    * If the base `lineHeight` is 24px (1.5rem), then if the given font size is
    * 32px, then its line height should be 48px, taking up two "rows"
    */
-  let lineHeightArr = sizesArr.map((size) => {
+  const lineHeightArr = sizesArr.map((size) => {
     let i = lineHeight;
     while (i < size) {
       i += lineHeight;
@@ -106,9 +105,9 @@ export function withTypeScale(props: WithTypeScaleProps): ThemeExtension {
           maxVW: isClampedObj?.maxVW,
         })
       : [
-          lineHeightArr[currIndex - 1] + 'rem',
+          `${lineHeightArr[currIndex - 1]}rem`,
           null,
-          lineHeightArr[currIndex] + 'rem',
+          `${lineHeightArr[currIndex]}rem`,
         ];
 
     /**
@@ -116,12 +115,9 @@ export function withTypeScale(props: WithTypeScaleProps): ThemeExtension {
      * return just that value.
      * Else, return the scale.
      */
-    const lineHeightVal =
-      lineHeightArr[currIndex - 1] === lineHeightArr[currIndex]
-        ? lineHeightArr[currIndex] + 'rem'
-        : lineHeightScale;
-
-    return lineHeightVal;
+    return lineHeightArr[currIndex - 1] === lineHeightArr[currIndex]
+      ? `${lineHeightArr[currIndex]}rem`
+      : lineHeightScale;
   };
 
   const headingSizesObj: Record<string, SystemStyleObject> = SIZE_TOKENS.reduce(
@@ -132,7 +128,7 @@ export function withTypeScale(props: WithTypeScaleProps): ThemeExtension {
           fontSize: currIndex < 2 ? curr : scaledFontSize(curr, currIndex),
           lineHeight:
             currIndex < 2
-              ? lineHeightArr[currIndex] + 'rem'
+              ? `${lineHeightArr[currIndex]}rem`
               : scaledLineHeight(currIndex),
         },
       };
