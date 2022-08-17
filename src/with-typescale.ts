@@ -50,13 +50,12 @@ export function withTypeScale(props: WithTypeScaleProps): ThemeExtension {
   /**
    * Holds the generated font sizes
    */
-  const sizesArr: number[] = [];
-  for (let i = 0; i < SIZE_TOKENS.length; i++) {
-    const value =
-      SIZE_TOKENS[i] === 'base' ? '1' : toPrecision(scale ** (i - 1), 3);
+  const sizesArr: number[] = SIZE_TOKENS.map((token, index) => {
+    const value = token === 'base' ? '1' : toPrecision(scale ** (index - 1), 3);
 
-    sizesArr.push(parseFloat(value));
-  }
+    return parseFloat(value);
+  });
+
   /**
    * The key:value pairs of the token abbreviation and related generated font size
    */
