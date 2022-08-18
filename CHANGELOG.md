@@ -1,5 +1,18 @@
 # @tylerapfledderer/chakra-ui-typescale
 
+## 1.3.1
+
+### Patch Changes
+
+- 4c13d66: Update README file
+
+  - fixes outstanding typos in the file.
+  - Clarifies the use of the `minVW` and `maxVW` props for `isClamped`.
+
+- 063bb91: Refactor various minor syntax
+
+  Simplify the `sizesArr` declaration using the `map()` function.
+
 ## 1.3.0
 
 ### Minor Changes
