@@ -60,7 +60,7 @@ rhythm. In other words, if the line height in pixels for a `16px` body copy is
 `h1` should be `3 * 24 = 72px`. This means the `h1` takes up three "rows" in the
 base line height.
 
-This `lineHeight` value is also used to generate a new set of `space` theme tokens specifically for the vertical rhyhtm in line with the type scale. This provides spacing consistency between text content, regardless of any other content that may not fit in the baseline.
+This `lineHeight` value is also used to generate a new set of `space` theme tokens specifically for the vertical rhythm in line with the type scale. This provides spacing consistency between text content, regardless of any other content that may not fit in the baseline.
 
 > To learn more on vertical rhythm check out the discussion from designer Matej
 > Latin on his site
@@ -133,4 +133,4 @@ So use the even token numbers if you want to use multiples of the line height!
 ## Future Considerations
 
 - As the extension gets used, there may be discovery of other ways to generate
-  the values more effeciently or with more flexibility.
+  the values more efficiently or with more flexibility.
