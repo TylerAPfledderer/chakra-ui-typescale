@@ -60,7 +60,7 @@ rhythm. In other words, if the line height in pixels for a `16px` body copy is
 `h1` should be `3 * 24 = 72px`. This means the `h1` takes up three "rows" in the
 base line height.
 
-This `lineHeight` value is also used to generate a new set of `space` theme tokens specifically for the vertical rhyhtm in line with the type scale. This provides spacing consistency between text content, regardless of any other content that may not fit in the baseline.
+This `lineHeight` value is also used to generate a new set of `space` theme tokens specifically for the vertical rhythm in line with the type scale. This provides spacing consistency between text content, regardless of any other content that may not fit in the baseline.
 
 > To learn more on vertical rhythm check out the discussion from designer Matej
 > Latin on his site
@@ -72,14 +72,14 @@ This `lineHeight` value is also used to generate a new set of `space` theme toke
 
 This prop toggles between the use of custom functionality with the CSS `clamp()` function, or Chakra's breakpoint array feature. This is applied to the `Heading` component font sizes and line heights generated in the `sizes` theme object.
 
-- If `true` a custom function with `clamp()` is used so the font sizes and line heights are scaled gradually throughout screen sizes instead of breakpoints. The minimum screen size is `375px` and the maximum screen size is `640px`.
-  - Instead of true, you can also defined an object to set a `minW` and/or `maxW` in pixels
+- If `true` a custom function with `clamp()` is used so the font sizes and line heights are scaled gradually throughout screen sizes instead of breakpoints. By default, the minimum screen size set is `375px` and the maximum screen size is `640px`.
+  - Instead of true, you can also define an object to set a `minVW` and/or `maxVW` in pixels.
 
 ```ts
 withTypeScale({
   scale: 1.25,
   lineHeight: 1.45,
-  isClamped: { minW: 300, maxW: 1200 },
+  isClamped: { minVW: 300, maxVW: 1200 },
 });
 ```
 
@@ -133,4 +133,4 @@ So use the even token numbers if you want to use multiples of the line height!
 ## Future Considerations
 
 - As the extension gets used, there may be discovery of other ways to generate
-  the values more effeciently or with more flexibility.
+  the values more efficiently or with more flexibility.
