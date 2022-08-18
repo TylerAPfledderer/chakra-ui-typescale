@@ -120,7 +120,7 @@ export function withTypeScale(props: WithTypeScaleProps): ThemeExtension {
       : lineHeightScale;
   };
 
-  const headingSizesObj: Record<string, SystemStyleObject> = SIZE_TOKENS.reduce(
+  const sizesObj: Record<string, SystemStyleObject> = SIZE_TOKENS.reduce(
     (prev, curr, currIndex) => {
       return {
         ...prev,
@@ -148,13 +148,14 @@ export function withTypeScale(props: WithTypeScaleProps): ThemeExtension {
           baseStyle: {
             marginBottom: vertical[2],
           },
-          sizes: headingSizesObj,
+          sizes: sizesObj,
         },
         Text: {
           baseStyle: {
-            lineHeight: headingSizesObj.base.lineHeight,
+            lineHeight: sizesObj.base.lineHeight,
             marginBottom: vertical[2],
           },
+          sizes: sizesObj,
         },
       },
     });
