@@ -20,6 +20,8 @@ or
 yarn add @tylerapfledderer/chakra-ui-typescale
 ```
 
+---
+
 ## Usage
 
 Because `withTypeScale` is a theme extension, it is included as an additional argument to the
@@ -85,6 +87,8 @@ withTypeScale({
 
 - If `false` Chakra's breakpoint array is used to declare change of the font sizes and line heights via a sensible breakpoint. (breakpoint used is `min-width` 48em, aka `md`). For more information, see Chakra UI's page on [Responsive Styles](https://chakra-ui.com/docs/styled-system/responsive-styles)
 
+---
+
 ## Return Object
 
 `withTypeScale` generates the following set of token values for sizing:
@@ -97,18 +101,16 @@ Since some projects may only require 3 of the six heading and/or of drastically
 varying sizes, any of the sizes in scales can certainly be used for any heading
 (give the `h3` element a font size from the `lg` token, say, instead of `3xl`).
 
-The `Heading` component receives an object for its `sizes` group of `fontSize` /
+The `Text` component gets a base style `lineHeight` of the `base` token line
+height value.
+
+Both the `Heading` and `Text` components receive a base style `marginBottom` of the `vertical.2` token denoting the line height value in `rem`. (See below) They also receive an object for its `sizes` group of `fontSize` /
 `lineHeight` array pairs which are also assigned the same token values. See the
 section in the ChakraUI docsite on
 [Changing font size](https://chakra-ui.com/docs/components/typography/heading#changing-font-size)
 to get an idea on how `withTypeScale` returns a similar set.
 
-The `Text` component gets a base style `lineHeight` of the `base` token line
-height value.
-
-Both the `Heading` and `Text` components also receive a base style `marginBottom` of the `vertical.2` token denoting the line height value in `rem`. (See below)
-
-It also generates a subset of tokens under the `space` theme object with the object name `vertical`. There are 13 whole-number tokens, with values equal to multiple of half the given `lineHeight` from the extension's props in `rem`.
+This extension also generates a subset of tokens under the `space` theme object with the object name `vertical`. There are 13 whole-number tokens, with values equal to multiple of half the given `lineHeight` from the extension's props in `rem`.
 
 > Using whole numbers to prevent confusion and minimize complexity when calling the tokens.
 > i.e. `vertical.1, vertical.2` instead of `vertical.1, vertical.1.5`
@@ -128,7 +130,33 @@ It also generates a subset of tokens under the `space` theme object with the obj
 }
 ```
 
-So use the even token numbers if you want to use multiples of the line height!
+> **So use the even token numbers if you want to use multiples of the line height!**
+
+### Extended Theme Output
+
+```ts
+{
+  fontSizes: fontSizesObj,
+  space: {
+    vertical,
+  },
+  components: {
+    Heading: {
+      baseStyle: {
+        marginBottom: vertical[2],
+      },
+      sizes: sizesObj,
+    },
+    Text: {
+      baseStyle: {
+        lineHeight: sizesObj.base.lineHeight,
+        marginBottom: vertical[2],
+      },
+      sizes: sizesObj,
+    },
+  },
+}
+```
 
 ## Future Considerations
 
