@@ -10,6 +10,10 @@ import { clampFont } from './utils/clamp-font';
 type WithTypeScaleProps = {
   /**
    * The multiplier that is used to generate the set of font sizes
+   *
+   * The typical range is from `1.067` to `1.618`
+   *
+   * @see Type-Scale Generator https://type-scale.com
    */
   scale: number;
 
