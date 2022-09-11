@@ -10,6 +10,10 @@ import { clampFont } from './utils/clamp-font';
 type WithTypeScaleProps = {
   /**
    * The multiplier that is used to generate the set of font sizes
+   *
+   * The typical range is from `1.067` to `1.618`
+   *
+   * @see Type-Scale Generator https://type-scale.com
    */
   scale: number;
 
@@ -34,6 +38,21 @@ type WithTypeScaleProps = {
   isClamped?: boolean | { minVW?: number; maxVW?: number };
 };
 
+/**
+ * Chakra UI theme extension to generate font sizes and line height via a specified scale.
+ *
+ * Uses the following set of token values for sizing:
+ * `['sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl']`
+ *
+ * - Generates a `vertical` token object for `space` theme with values from `1` - `13` (i.e. `marginB="vertical.1"`)
+ * - Generates a set of `fontSize` tokens
+ * - Generates `sizes` tokens for the `Heading` component and a default `marginBottom` value
+ * - Generates `sizes` tokens for the `Text` component and a default `lineHeight` and `marginBottom` value.
+ *
+ * @return ThemeExtension
+ *
+ * @see https://github.com/TylerAPfledderer/chakra-ui-typescale#readme
+ */
 export function withTypeScale(props: WithTypeScaleProps): ThemeExtension {
   const { scale, lineHeight = 1.5, isClamped = false } = props;
 
