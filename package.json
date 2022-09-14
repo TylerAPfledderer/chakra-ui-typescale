@@ -1,6 +1,6 @@
 {
   "name": "@tylerapfledderer/chakra-ui-typescale",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "A Chakra UI theme extenstion plugin to generate font sizes and line-heights",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
