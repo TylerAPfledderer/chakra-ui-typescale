@@ -1,5 +1,21 @@
 # @tylerapfledderer/chakra-ui-typescale
 
+## 1.4.0
+
+### Minor Changes
+
+- 1ffd850: Add sizes theme object for `Text` component
+
+  Takes the generated object of font size and line height token groups for the `Heading` component and applies them to the `Text` component.
+
+### Patch Changes
+
+- a0e4a77: Add JSDoc for `withTypeScale`
+
+  Provide detail about the extension for the IDE intellisense.
+
+  Includes update to the JSDoc for the `scale` prop.
+
 ## 1.3.1
 
 ### Patch Changes
